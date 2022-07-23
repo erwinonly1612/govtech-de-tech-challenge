@@ -1,0 +1,40 @@
+[2022-07-23 03:35:49,146] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_dag.concat_dataset_task scheduled__2022-07-22T01:00:00+00:00 [queued]>
+[2022-07-23 03:35:49,546] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_dag.concat_dataset_task scheduled__2022-07-22T01:00:00+00:00 [queued]>
+[2022-07-23 03:35:49,548] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-07-23 03:35:49,549] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-07-23 03:35:49,562] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-07-23 03:35:49,912] {taskinstance.py:1259} INFO - Executing <Task(PythonOperator): concat_dataset_task> on 2022-07-22 01:00:00+00:00
+[2022-07-23 03:35:50,011] {standard_task_runner.py:52} INFO - Started process 17489 to run task
+[2022-07-23 03:35:50,401] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_dag', 'concat_dataset_task', 'scheduled__2022-07-22T01:00:00+00:00', '--job-id', '26', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_dag.py', '--cfg-path', '/tmp/tmp89nbs7oq', '--error-file', '/tmp/tmppd4kpkqz']
+[2022-07-23 03:35:50,416] {standard_task_runner.py:77} INFO - Job 26: Subtask concat_dataset_task
+[2022-07-23 03:35:52,067] {logging_mixin.py:109} INFO - Running <TaskInstance: data_ingestion_dag.concat_dataset_task scheduled__2022-07-22T01:00:00+00:00 [running]> on host b53e6dc6abdf
+[2022-07-23 03:35:53,543] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_dag
+AIRFLOW_CTX_TASK_ID=concat_dataset_task
+AIRFLOW_CTX_EXECUTION_DATE=2022-07-22T01:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-07-22T01:00:00+00:00
+[2022-07-23 03:35:54,258] {data_ingestion_dag.py:36} INFO -                  name        price
+0      William Garcia  258.1809089
+1     Barbara Freeman   141.890534
+2   Rebecca Zimmerman   293.373272
+3  Patricia Velasquez  249.9479246
+4        Ronnie Clark   272.908659
+[2022-07-23 03:35:55,207] {logging_mixin.py:109} INFO - <class 'pandas.core.frame.DataFrame'>
+Int64Index: 10000 entries, 0 to 4999
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype 
+---  ------  --------------  ----- 
+ 0   name    9961 non-null   object
+ 1   price   10000 non-null  object
+dtypes: object(2)
+memory usage: 234.4+ KB
+[2022-07-23 03:35:55,208] {data_ingestion_dag.py:37} INFO - None
+[2022-07-23 03:35:55,290] {data_ingestion_dag.py:38} INFO - /opt/***/dataset_staging.csv
+[2022-07-23 03:35:57,439] {data_ingestion_dag.py:45} INFO - 9961
+[2022-07-23 03:35:58,278] {python.py:175} INFO - Done. Returned value was: None
+[2022-07-23 03:35:58,419] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=data_ingestion_dag, task_id=concat_dataset_task, execution_date=20220722T010000, start_date=20220723T033549, end_date=20220723T033558
+[2022-07-23 03:35:58,970] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-07-23 03:35:59,363] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

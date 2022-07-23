@@ -1,0 +1,94 @@
+[2022-07-22 16:07:23,573] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_dag.concat_dataset_task manual__2022-07-22T15:01:14.924217+00:00 [queued]>
+[2022-07-22 16:07:23,588] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_dag.concat_dataset_task manual__2022-07-22T15:01:14.924217+00:00 [queued]>
+[2022-07-22 16:07:23,588] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-07-22 16:07:23,588] {taskinstance.py:1239} INFO - Starting attempt 7 of 7
+[2022-07-22 16:07:23,588] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-07-22 16:07:23,605] {taskinstance.py:1259} INFO - Executing <Task(PythonOperator): concat_dataset_task> on 2022-07-22 15:01:14.924217+00:00
+[2022-07-22 16:07:23,610] {standard_task_runner.py:52} INFO - Started process 11531 to run task
+[2022-07-22 16:07:23,617] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_dag', 'concat_dataset_task', 'manual__2022-07-22T15:01:14.924217+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_dag.py', '--cfg-path', '/tmp/tmproaumoi4', '--error-file', '/tmp/tmp9kpyn57r']
+[2022-07-22 16:07:23,618] {standard_task_runner.py:77} INFO - Job 22: Subtask concat_dataset_task
+[2022-07-22 16:07:23,684] {logging_mixin.py:109} INFO - Running <TaskInstance: data_ingestion_dag.concat_dataset_task manual__2022-07-22T15:01:14.924217+00:00 [running]> on host b53e6dc6abdf
+[2022-07-22 16:07:23,754] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_dag
+AIRFLOW_CTX_TASK_ID=concat_dataset_task
+AIRFLOW_CTX_EXECUTION_DATE=2022-07-22T15:01:14.924217+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-07-22T15:01:14.924217+00:00
+[2022-07-22 16:07:23,777] {data_ingestion_dag.py:36} INFO -                  name        price
+0      William Garcia  258.1809089
+1     Barbara Freeman   141.890534
+2   Rebecca Zimmerman   293.373272
+3  Patricia Velasquez  249.9479246
+4        Ronnie Clark   272.908659
+[2022-07-22 16:07:23,847] {logging_mixin.py:109} INFO - <class 'pandas.core.frame.DataFrame'>
+Int64Index: 10000 entries, 0 to 4999
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype 
+---  ------  --------------  ----- 
+ 0   name    9961 non-null   object
+ 1   price   10000 non-null  object
+dtypes: object(2)
+memory usage: 234.4+ KB
+[2022-07-22 16:07:23,847] {data_ingestion_dag.py:37} INFO - None
+[2022-07-22 16:07:23,847] {data_ingestion_dag.py:38} INFO - /opt/***/dataset_staging.csv
+[2022-07-22 16:07:23,882] {taskinstance.py:1700} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 174, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 185, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/data_ingestion_dag.py", line 39, in concat_dataset
+    output_df[['first_name','last_name']] = output_df['name'].str.split(' ', expand=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/frame.py", line 3600, in __setitem__
+    self._setitem_array(key, value)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/frame.py", line 3639, in _setitem_array
+    check_key_length(self.columns, key, value)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/indexers.py", line 428, in check_key_length
+    raise ValueError("Columns must be same length as key")
+ValueError: Columns must be same length as key
+[2022-07-22 16:07:23,926] {taskinstance.py:1277} INFO - Marking task as FAILED. dag_id=data_ingestion_dag, task_id=concat_dataset_task, execution_date=20220722T150114, start_date=20220722T160723, end_date=20220722T160723
+[2022-07-22 16:07:23,965] {standard_task_runner.py:92} ERROR - Failed to execute job 22 for task concat_dataset_task
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/task/task_runner/standard_task_runner.py", line 85, in _start_by_fork
+    args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 298, in task_run
+    _run_task_by_selected_method(args, dag, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 107, in _run_task_by_selected_method
+    _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 184, in _run_raw_task
+    error_file=args.error_file,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 70, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 174, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 185, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/data_ingestion_dag.py", line 39, in concat_dataset
+    output_df[['first_name','last_name']] = output_df['name'].str.split(' ', expand=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/frame.py", line 3600, in __setitem__
+    self._setitem_array(key, value)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/frame.py", line 3639, in _setitem_array
+    check_key_length(self.columns, key, value)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/indexers.py", line 428, in check_key_length
+    raise ValueError("Columns must be same length as key")
+ValueError: Columns must be same length as key
+[2022-07-22 16:07:23,994] {local_task_job.py:154} INFO - Task exited with return code 1
+[2022-07-22 16:07:24,065] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

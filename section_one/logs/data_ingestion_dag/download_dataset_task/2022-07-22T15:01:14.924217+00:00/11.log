@@ -1,0 +1,37 @@
+[2022-07-23 09:33:59,737] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_dag.download_dataset_task manual__2022-07-22T15:01:14.924217+00:00 [queued]>
+[2022-07-23 09:33:59,753] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_dag.download_dataset_task manual__2022-07-22T15:01:14.924217+00:00 [queued]>
+[2022-07-23 09:33:59,753] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-07-23 09:33:59,753] {taskinstance.py:1239} INFO - Starting attempt 11 of 11
+[2022-07-23 09:33:59,753] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-07-23 09:33:59,773] {taskinstance.py:1259} INFO - Executing <Task(PythonOperator): download_dataset_task> on 2022-07-22 15:01:14.924217+00:00
+[2022-07-23 09:33:59,781] {standard_task_runner.py:52} INFO - Started process 285 to run task
+[2022-07-23 09:33:59,787] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_dag', 'download_dataset_task', 'manual__2022-07-22T15:01:14.924217+00:00', '--job-id', '32', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_dag.py', '--cfg-path', '/tmp/tmp5f72uoyp', '--error-file', '/tmp/tmpb6b8w181']
+[2022-07-23 09:33:59,788] {standard_task_runner.py:77} INFO - Job 32: Subtask download_dataset_task
+[2022-07-23 09:33:59,872] {logging_mixin.py:109} INFO - Running <TaskInstance: data_ingestion_dag.download_dataset_task manual__2022-07-22T15:01:14.924217+00:00 [running]> on host 00a9cb948a72
+[2022-07-23 09:33:59,963] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_dag
+AIRFLOW_CTX_TASK_ID=download_dataset_task
+AIRFLOW_CTX_EXECUTION_DATE=2022-07-22T15:01:14.924217+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-07-22T15:01:14.924217+00:00
+[2022-07-23 09:33:59,964] {data_ingestion_dag.py:26} INFO - /opt/***
+[2022-07-23 09:33:59,965] {data_ingestion_dag.py:30} INFO - /opt/***/dataset1.csv
+[2022-07-23 09:34:00,457] {data_ingestion_dag.py:32} INFO -              name       price
+0   William Dixon  109.037280
+1    Kristen Horn  262.524652
+2  Kimberly Chang  187.007258
+3       Mary Ball  283.174648
+4  Benjamin Craig  143.871582
+[2022-07-23 09:34:00,493] {data_ingestion_dag.py:30} INFO - /opt/***/dataset2.csv
+[2022-07-23 09:34:00,909] {data_ingestion_dag.py:32} INFO -                  name        price
+0      William Garcia  258.1809089
+1     Barbara Freeman   141.890534
+2   Rebecca Zimmerman   293.373272
+3  Patricia Velasquez  249.9479246
+4        Ronnie Clark   272.908659
+[2022-07-23 09:34:00,926] {python.py:175} INFO - Done. Returned value was: None
+[2022-07-23 09:34:00,957] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=data_ingestion_dag, task_id=download_dataset_task, execution_date=20220722T150114, start_date=20220723T093359, end_date=20220723T093400
+[2022-07-23 09:34:01,006] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-07-23 09:34:01,087] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check
