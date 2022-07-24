@@ -7,8 +7,6 @@ Display a graph to show the number cases in Singapore over time using the APIs f
 
 Note: please submit screenshots of the dashboard
 
-<br>
-
 ### Covid-19 Dashboard
 
 The Covid-19 dataset is retrieved via python script (**download_covid_data.py**) to **data/covid_sg.csv** and then uploaded to Tableau Public to visualize the data.
