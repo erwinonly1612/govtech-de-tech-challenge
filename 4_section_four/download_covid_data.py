@@ -6,3 +6,4 @@ covid_sg_json = requests.get("https://api.covid19api.com/country/singapore?from=
 covid_sg_df = pd.json_normalize(covid_sg_json, max_level=1)
 covid_sg_df.head()
 covid_sg_df.info()
+covid_sg_df.to_csv(r"data/covid_sg.csv",index=False)
